@@ -1,0 +1,1 @@
+You need Assembly-CSharp.dll from the game and possibly also Assembly-CSharp-firstpass.dll placed here in the lib.

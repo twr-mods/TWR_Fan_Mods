@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>DynamicEpilogues</AssemblyName>
+    <Product>Dynamic Epilogues</Product>
+    <Version>1.0.1</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+      https://nuget.samboy.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <RootNamespace>DynamicEpilogues</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+    <PackageReference Include="HarmonyX" Version="2.10.2" IncludeAssets="compile" />
+    <PackageReference Include="UnityEngine.Modules" Version="2019.2.17" IncludeAssets="compile" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>lib\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="Assembly-CSharp-firstpass"
+               Condition="Exists('lib\Assembly-CSharp-firstpass.dll')">
+      <HintPath>lib\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\revolution_epilogs.txt"
+                      Link="Data\revolution_epilogs.txt"
+                      LogicalName="DynamicEpilogues.Data.revolution_epilogs.txt" />
+    <EmbeddedResource Include="..\reform_epilogs.txt"
+                      Link="Data\reform_epilogs.txt"
+                      LogicalName="DynamicEpilogues.Data.reform_epilogs.txt" />
+  </ItemGroup>
+</Project>

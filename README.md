@@ -11,7 +11,7 @@ This release includes:
 * **Jeycii's Fan Final Battle Sound-Offs**
 * **Jeycii's Fan Epilogues**
 * **Third Weapon Slot to Item Slot**
-* **Any Promotion Possible**
+* **All Promotions Possible**
 
 ---
 
